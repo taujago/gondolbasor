@@ -58,14 +58,14 @@ $active_record = TRUE;
 //$host = "222.124.218.141";
 //$sid = "ORCL";
 
-$host = "192.168.100.99";
-$sid = "ORCL";
+$host = "jabar";
+$sid = "ORA11G";
 
 
 $tnsname = "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=$host)(PORT=1521))(CONNECT_DATA=(SID=$sid)))";
 
 $db['default']['hostname'] = $tnsname;// '180.250.16.227';
-$db['default']['username'] = 'dbsifik_dispenda';
+$db['default']['username'] = 'dbsifik_papua';
 $db['default']['password'] = 'p1k1r3ndh3w3';
 $db['default']['database'] = $sid;
 $db['default']['dbdriver'] = 'oci8';
