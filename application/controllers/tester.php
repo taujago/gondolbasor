@@ -16,7 +16,7 @@ function test_conn(){
 	}
 }
 
-	var $url = "http://localhost/bpkbonline/index.php/rocknroll";
+	var $url = "http://localhost/gondolbasor/index.php/rocknroll";
 
 	//ss
 	// var $url = "http://180.250.16.227/bpkbonline/index.php/rocknroll";
@@ -25,24 +25,19 @@ function test_conn(){
 var $user = "3PILAR";
 var $pass = "rahasia.123321";
 var $salt = "1234556678";
-	function bpkb_login(){
+
+
+
+
+
+
+
+
+
+	function bpkb_login_web(){
 		 
 		
-		/*
-	v_user_name
-    v_password
-    v_id_alat
-		*/
-		// $data =  array(
-		// 		"LoginInfo" => array ( 
-		// 				"LoginName" => $this->user,
-		// 				"Salt" =>  $this->salt,
-		// 				"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
-		// 		),
-		// 		"username"=> "upie",
-		// 		"password"=>  "upie",
-		// 		"imei" => 	"PMJ001"	
-		// 		);
+	 
 
 		$data =  array(
 				"LoginInfo" => array ( 
@@ -52,17 +47,18 @@ var $salt = "1234556678";
 				),
 				"Param"=>array(
 						"v_user_name"=> "upie",
-						"v_password"=>  "upie",
-						"v_id_alat" => 	"PMJ001")	
+						"v_password"=>  "upie" 
+						 )	
 				);
 
 		$data_json = json_encode($data);
-		// echo $data_json; exit;
+
+		// exit;
 		// echo "sebelum dikirim " . $data_json;
-		$res = $this->execute_service2($this->url,"bpkb_login",$data_json);
+		$res = $this->execute_service2($this->url,"bpkb_login_web",$data_json);
 
 		// echo "<hr />"; 
-		header('Content-type: text/xml');
+		 
 		echo $res;
 
 		 
