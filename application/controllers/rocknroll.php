@@ -20,10 +20,10 @@ function rocknroll(){
 
 
 		$this->data = $data;
-		/*echo " data post ";
+		echo " data post ";
 		show_array($data);
 		echo "end of data in object form"; 
-		exit;  */ 
+		exit;   
 
 		$login = $this->auth($data);
 
