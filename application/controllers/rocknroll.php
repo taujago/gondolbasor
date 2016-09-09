@@ -84,7 +84,7 @@ function bpkb_login_web(){
 
 
 function refresh_pemohon(){
-	$result = $this->master->refresh_pemohon();
+	$result = $this->master->refresh_pemohon($this->data->Param->pemohonJenis);
 	// show_array($result);
 	echo json_encode($result);
 }

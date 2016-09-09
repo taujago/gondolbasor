@@ -16,7 +16,7 @@ function test_conn(){
 	}
 }
 
-	var $url = "http://localhost/gondolbasor/index.php/rocknroll";
+	var $url = "http://jabar/gondolbasor/index.php/rocknroll";
 
 	//ss
 	// var $url = "http://180.250.16.227/bpkbonline/index.php/rocknroll";
@@ -359,7 +359,8 @@ function refresh_pemohon(){
 				));
 
 		$data_json = json_encode($data);
-		// echo $data_json; exit;
+		echo $data_json;
+		//exit;
 		// echo "sebelum dikirim " . $data_json;
 		$res = $this->execute_service2($this->url,"refresh_pemohon",$data_json);
 
