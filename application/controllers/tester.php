@@ -16,7 +16,8 @@ function test_conn(){
 	}
 }
 
-	var $url = "http://jabar/gondolbasor/index.php/rocknroll";
+	// var $url = "http://jabar/gondolbasor/index.php/rocknroll";
+var $url = "http://localhost/gondolbasor/index.php/rocknroll";
 
 	//ss
 	// var $url = "http://180.250.16.227/bpkbonline/index.php/rocknroll";

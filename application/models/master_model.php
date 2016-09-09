@@ -19,7 +19,7 @@ function refresh_pemohon($PEMOHON_JENIS){
    
 
 	$rs_bb = $this->db->query($sql);	 
-	echo $this->db->last_query(); exit;
+	// echo $this->db->last_query(); exit;
 	
 	if($rs_bb) {
 		$ret = array("result"=>"true");

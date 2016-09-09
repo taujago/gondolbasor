@@ -20,10 +20,10 @@ function rocknroll(){
 
 
 		$this->data = $data;
-		echo " data post ";
-		show_array($data);
-		echo "end of data in object form"; 
-		exit;   
+		// echo " data post ";
+		// show_array($data);
+		// echo "end of data in object form"; 
+		// exit;   
 
 		$login = $this->auth($data);
 
@@ -85,6 +85,7 @@ function bpkb_login_web(){
 
 function refresh_pemohon(){
 	// show_array($this->data);
+	// exit;
 	$result = $this->master->refresh_pemohon($this->data->Param->pemohonJenis);
 	// show_array($result);
 	echo json_encode($result);
