@@ -7,6 +7,7 @@ function rocknroll(){
 
 		$this->load->library("xml");
 		$this->load->model("bpkb_model","bm");
+		$this->load->model("master_model","master");
 		// $this->load->model("oramodel");
 
 		$data = json_decode(stripslashes($this->input->post('data')));
@@ -81,6 +82,12 @@ function bpkb_login_web(){
 
 }
 
+
+function refresh_pemohon(){
+	$result = $this->master->refresh_pemohon();
+	// show_array($result);
+	echo json_encode($result);
+}
 
  
 }

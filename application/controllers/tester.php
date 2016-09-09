@@ -364,7 +364,7 @@ function refresh_pemohon(){
 		$res = $this->execute_service2($this->url,"refresh_pemohon",$data_json);
 
 		// echo "<hr />"; 
-		header('Content-type: text/xml');
+		// header('Content-type: text/xml');
 		echo $res;
 
 		 
