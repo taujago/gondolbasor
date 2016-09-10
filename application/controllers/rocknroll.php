@@ -150,7 +150,7 @@ function bpkb_list_pemohon_web(){
 
 	endforeach;
 
-	show_array($ret);
+	//show_array($ret);
 
 	echo json_encode($ret);
 }
