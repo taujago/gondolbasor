@@ -86,24 +86,29 @@ function bpkb_add_company_web($data){
 
 
 function bpkb_add_pemohon_web($data){
-	$sql="select bpkb_add_operator(
-		'$data->v_polda_id',
-		'$data->v_polres_id',
-		'$data->v_petugas_id',
-		'$data->v_nama',
-		'$data->v_nrp',
-		'$data->v_pangkat',
-		'$data->v_role_id',
-		'$data->v_password'
+	$sql="select bpkb_add_pemohon_web(
+		'$data->v_pemohon_nama',
+		'$data->v_company_id',
+		'$data->v_bank_id',
+		'$data->v_pemohon_rek',
+		'$data->v_pemohon_telp',
+		'$data->v_pemohon_hp',
+		'$data->v_pemohon_alamat',
+		'$data->v_pemohon_foto  ',
+		'$data->v_pemohon_jenis',
+		'$data->v_id_petugas' 
 		) as msg from dual";
-	// echo "test..";
+	    
+
+		echo $sql; exit;
 
 		$result = $this->call_function($sql);
+		echo $result; exit;
 		// show_array($result); 
 		// exit;
 		if($result['MSG'] <> 'error') { 
 		$tmp = explode("#",$result['MSG']);
-			if($tmp[0]=="00"){
+			if($tmp[0]=="1"){
 				$ret = array("result"=>"true","message"=>$tmp[1],"message_err"=>"");
 			}
 			else {
@@ -119,6 +124,30 @@ function bpkb_add_pemohon_web($data){
 
 }
 
+
+
+
+
+
+function bpkb_list_pemohon_web(){
+	
+	try {
+          
+           $data =  $this->readCursor("bpkb_list_pemohon_web(:refc)",array());
+            // show_array($data); exit;
+            //$ret = array("result"=>"true","message"=>$data);
+            if(count($data)==0){
+            	$ret = array("result"=>"false","message_err"=>"DATA NOT FOUND","message"=>"");
+            }
+            else {
+            	$ret = array("result"=>"true","message"=>array("bpkb_list_pemohon_web"=>$data) , "message_err"=>"");
+            }
+        } 
+        catch(exception $ex){
+          $ret = array("result"=>"false","message_err"=>"DATABASE ERROR","message"=>"");
+        }
+    return $ret; 
+}
 
 }
 

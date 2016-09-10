@@ -175,6 +175,119 @@ function bpkb_add_company_web(){
 
 
 
+	function bpkb_add_pemohon_web(){
+		$data =  array(
+				"LoginInfo" => array ( 
+						"LoginName" => $this->user,
+						"Salt" =>  $this->salt,
+						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
+				),
+				"Param" => array(
+				'v_pemohon_nama' => 'Budi Harjoino',
+				'v_company_id' => "2",
+				'v_bank_id' => "3",
+				'v_pemohon_rek' =>  "BNI33",
+				'v_pemohon_telp' => "034934934",
+				'v_pemohon_hp' => "8242424",
+				'v_pemohon_alamat' => "alamat",
+				'v_pemohon_foto' => "FOTO.JPG",
+				'v_pemohon_jenis' => "PRIBADI",
+				'v_id_petugas' => "UPIE"
+				));
+ 
+		$data_json = json_encode($data);
+
+		// echo "sebelum dikirim " . $data_json;
+		$res = $this->execute_service2($this->url,"bpkb_add_pemohon_web",$data_json);
+
+		 
+		echo $res;
+
+		 
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function bpkb_list_pemohon_web(){
+		$data =  array(
+				"LoginInfo" => array ( 
+						"LoginName" => $this->user,
+						"Salt" =>  $this->salt,
+						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
+				));
+
+		$data_json = json_encode($data);
+		//echo $data_json;
+		//exit;
+		// echo "sebelum dikirim " . $data_json;
+		$res = $this->execute_service2($this->url,"bpkb_list_pemohon_web",$data_json);
+
+		// echo "<hr />"; 
+		// header('Content-type: text/xml');
+		echo $res;
+
+		 
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	function bpkb_add_operator(){
@@ -215,6 +328,7 @@ function bpkb_add_company_web(){
 
 		 
 	}
+
 
 
 function bpkb_edit_operator(){
@@ -462,26 +576,6 @@ function edit_pemohon(){
 	}
 
 
-function refresh_pemohon(){
-		$data =  array(
-				"LoginInfo" => array ( 
-						"LoginName" => $this->user,
-						"Salt" =>  $this->salt,
-						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
-				));
-
-		$data_json = json_encode($data);
-		echo $data_json;
-		//exit;
-		// echo "sebelum dikirim " . $data_json;
-		$res = $this->execute_service2($this->url,"refresh_pemohon",$data_json);
-
-		// echo "<hr />"; 
-		// header('Content-type: text/xml');
-		echo $res;
-
-		 
-	}
 
 function bpkb_pendaftaran_add(){
 		$data =  array(
