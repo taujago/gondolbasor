@@ -47,10 +47,19 @@ class ORA_Model extends CI_Model {
                 // Create the statement and bind the variables (parameter, value, size)
                 // $curs = oci_new_cursor($conn);
                 $stid = oci_parse($conn, "begin  $storedProcedure; end;");
-                foreach ($binds as $variable) : 
-                    //oci_bind_by_name($stid, $variable["parameter"], $variable["value"], $variable["size"]);
-                    oci_bind_by_name($stid, $variable["parameter"],$variable["value"], strlen($variable["value"]));
-                endforeach;
+
+
+
+
+                if(count($binds) > 0 ) : 
+                    foreach ($binds as $variable) : 
+                        //oci_bind_by_name($stid, $variable["parameter"], $variable["value"], $variable["size"]);
+                        oci_bind_by_name($stid, $variable["parameter"],$variable["value"], strlen($variable["value"]));
+                    endforeach;
+                endif;
+
+
+
                 // Create the cursor and bind it
                 $p_cursor = oci_new_cursor($conn);
                 oci_bind_by_name($stid, ':refc', $p_cursor, -1, OCI_B_CURSOR);

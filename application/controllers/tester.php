@@ -66,6 +66,117 @@ var $salt = "1234556678";
 	}
 
 
+// function bpkb_login_web(){ 
+		
+// 		$data =  array(
+// 				"LoginInfo" => array ( 
+// 						"LoginName" => $this->user,
+// 						"Salt" =>  $this->salt,
+// 						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
+// 				),
+// 				"Param"=>array(
+// 						"v_user_name"=> "upie",
+// 						"v_password"=>  "upie" 
+// 						 )	
+// 				);
+
+// 		$data_json = json_encode($data);
+
+// 		// exit;
+// 		// echo "sebelum dikirim " . $data_json;
+// 		$res = $this->execute_service2($this->url,"bpkb_login_web",$data_json);
+
+// 		// echo "<hr />"; 
+		 
+// 		echo $res;
+
+		 
+// 	}
+
+
+
+function refresh_company(){ 
+	
+		$data =  array(
+				"LoginInfo" => array ( 
+						"LoginName" => $this->user,
+						"Salt" =>  $this->salt,
+						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
+				) 
+				);		
+		$data_json = json_encode($data);
+
+		// echo $data_json; exit;
+
+	 
+		$res = $this->execute_service2($this->url,"refresh_company",$data_json);
+
+		 
+		 
+		echo $res;
+
+		 
+	}
+
+
+
+function bpkb_list_perusahaan_web(){ 
+	
+		$data =  array(
+				"LoginInfo" => array ( 
+						"LoginName" => $this->user,
+						"Salt" =>  $this->salt,
+						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
+				) 
+				);		
+		$data_json = json_encode($data);
+
+		// echo $data_json; exit;
+
+	 
+		$res = $this->execute_service2($this->url,"bpkb_list_perusahaan_web",$data_json);
+
+		 
+		 
+		echo $res;
+
+		 
+	}
+
+
+
+function bpkb_add_company_web(){ 
+	
+		$data =  array(
+				"LoginInfo" => array ( 
+						"LoginName" => $this->user,
+						"Salt" =>  $this->salt,
+						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
+				),
+				"Param"=>array(
+						
+
+					) 
+				);		
+		$data_json = json_encode($data);
+
+		echo $data_json; exit;
+
+	 
+		$res = $this->execute_service2($this->url,"bpkb_add_company_web",$data_json);
+
+		 
+		 
+		echo $res;
+
+		 
+	}
+
+
+
+
+
+
 	function bpkb_add_operator(){
 		$data =  array(
 				"LoginInfo" => array ( 

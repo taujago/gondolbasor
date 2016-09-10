@@ -91,6 +91,24 @@ function refresh_pemohon(){
 	echo json_encode($result);
 }
 
+function bpkb_list_perusahaan_web(){
+	// show_array($this->data);
+	// exit;
+	$result = $this->master->bpkb_list_perusahaan_web();
+	// show_array($result);
+	echo json_encode($result);
+}
+
+
+function bpkb_add_company_web(){
+	// show_array($this->data);
+	// exit;
+	$result = $this->master->bpkb_add_company_web($this->data->Param);
+	// show_array($result);
+	echo json_encode($result);
+}
+
+
  
 }
 ?>
