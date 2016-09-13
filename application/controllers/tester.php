@@ -154,7 +154,7 @@ function bpkb_add_company_web(){
 						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
 				),
 				"Param"=>array(
-						
+						"v_nama_company" => "PT. CINA BIDARA"
 
 					) 
 				);		
@@ -173,46 +173,7 @@ function bpkb_add_company_web(){
 	}
 
 
-
-
-	function bpkb_add_pemohon_web(){
-		$data =  array(
-				"LoginInfo" => array ( 
-						"LoginName" => $this->user,
-						"Salt" =>  $this->salt,
-						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
-				),
-				"Param" => array(
-				'v_pemohon_nama' => 'Budi Harjoino',
-				'v_company_id' => "2",
-				'v_bank_id' => "3",
-				'v_pemohon_rek' =>  "BNI33",
-				'v_pemohon_telp' => "034934934",
-				'v_pemohon_hp' => "8242424",
-				'v_pemohon_alamat' => "alamat",
-				'v_pemohon_foto' => "FOTO.JPG",
-				'v_pemohon_jenis' => "PRIBADI",
-				'v_id_petugas' => "UPIE"
-				));
  
-		$data_json = json_encode($data);
-
-		// echo "sebelum dikirim " . $data_json;
-		$res = $this->execute_service2($this->url,"bpkb_add_pemohon_web",$data_json);
-
-		 
-		echo $res;
-
-		 
-	}
-
-
-
-
-
-
-
-
 
 
 
@@ -233,6 +194,53 @@ function bpkb_list_pemohon_web(){
 		//exit;
 		// echo "sebelum dikirim " . $data_json;
 		$res = $this->execute_service2($this->url,"bpkb_list_pemohon_web",$data_json);
+
+		// echo "<hr />"; 
+		// header('Content-type: text/xml');
+		echo $res;
+
+		 
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+function bpkb_add_pemohon_web(){
+		$data =  array(
+				"LoginInfo" => array ( 
+						"LoginName" => $this->user,
+						"Salt" =>  $this->salt,
+						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
+				),
+
+				"Param" => array(
+					"v_pemohon_nama"   => "Firman",
+					"v_company_id"   => "1",
+					"v_bank_id"   => "1",
+					"v_pemohon_rek"   => "933934343",
+					"v_pemohon_telp"   => "34838434	",
+					"v_pemohon_hp"   => "34393493",
+					"v_pemohon_alamat"   => "Jl. kaliurang",
+					"v_pemohon_jenis"   => "PRIBADI",
+					"v_id_petugas"   => "UPIE"
+
+					)
+
+				);
+
+		$data_json = json_encode($data);
+		//echo $data_json;
+		//exit;
+		// echo "sebelum dikirim " . $data_json;
+		$res = $this->execute_service2($this->url,"bpkb_add_pemohon_web",$data_json);
 
 		// echo "<hr />"; 
 		// header('Content-type: text/xml');
@@ -587,7 +595,7 @@ function bpkb_pendaftaran_add(){
 				"Param" => array(				 
 
 						"vNoRangka"	=> "HMK35305305353",
-						"vTglDaftar"   => "20151010",
+						"vTglDaftar"   => "20160812",
 						"vNoBPKB"   =>  "L353535",
 						"vPemohonID"   =>  "1",
 						"vPetugasID"   =>  "1",
@@ -606,7 +614,7 @@ function bpkb_pendaftaran_add(){
 		$res = $this->execute_service2($this->url,"bpkb_pendaftaran_add",$data_json);
 
 		// echo "<hr />"; 
-		header('Content-type: text/xml');
+		// header('Content-type: text/xml');
 		echo $res;
 
 		 
@@ -689,8 +697,8 @@ function list_pendaftaran(){
 				),
 				"Param" => array(				 
 
-						"v_tgl"	=> "20150102",
-						"v_pemohon"   => "3029",
+						"v_tgl"	=> "20160826",
+						"v_pemohon"   => "5360",
 						"v_bbn1"   =>  "0"
 						 
 						 
@@ -703,7 +711,7 @@ function list_pendaftaran(){
 		$res = $this->execute_service2($this->url,"list_pendaftaran",$data_json);
 
 		// echo "<hr />"; 
-		header('Content-type: text/xml');
+		// header('Content-type: text/xml');
 		echo $res;
 
 		 

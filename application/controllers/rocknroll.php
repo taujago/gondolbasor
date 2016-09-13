@@ -156,6 +156,24 @@ function bpkb_list_pemohon_web(){
 }
 
 
+function list_pendaftaran(){
+	// show_array($this->data);
+	// exit;
+	$result = $this->bm->list_pendaftaran($this->data->Param);
+	// show_array($result);
+	echo json_encode($result);
+}
+
+
+function bpkb_pendaftaran_add(){
+	// show_array($this->data);
+	// exit;
+	$result = $this->bm->bpkb_pendaftaran_add($this->data->Param);
+	// show_array($result);
+	echo json_encode($result);
+}
+
+
  
 }
 ?>

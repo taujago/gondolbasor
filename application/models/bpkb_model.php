@@ -95,6 +95,69 @@ function bpkb_login_web($data){
 
 
 
+function list_pendaftaran($param){
+	 
+		try {
+            $variables[0] = array("parameter" => "p1", "value" => $param->v_tgl);
+            $variables[1] = array("parameter" => "p2", "value" => $param->v_pemohon);
+            $variables[2] = array("parameter" => "p3", "value" => $param->v_bbn1);
+            $data =  $this->readCursor("list_pendaftaran(:p1, :p2, :p3, :refc)", $variables);
+            // show_array($data); exit;
+            //$ret = array("result"=>"true","message"=>$data);
+            if(count($data)==0){
+            	$ret = array("result"=>"false","message_err"=>"DATA NOT FOUND","message"=>"");
+            }
+            else {
+            	$ret = array("result"=>"true","message"=>array("list_pendaftaran"=>$data) , "message_err"=>"");
+            }
+        } 
+        catch(exception $ex){
+          $ret = array("result"=>"false","message_err"=>"DATABASE ERROR","message"=>"");
+        }
+        return $ret;
+}
+
+
+
+
+function bpkb_pendaftaran_add($data){
+		$sql="select bpkb_pendaftaran_add(
+		'$data->vNoRangka',
+		'$data->vTglDaftar',
+		'$data->vNoBPKB',
+		'$data->vPemohonID',
+		'$data->vPetugasID',
+		'$data->vBarcodeBank',
+		'$data->vLoketNo',
+		'$data->vEnrollmentType',
+		'$data->vTypeDaftaran',
+		'$data->vMerkID'
+		) as msg from dual";
+	// echo "test..";
+
+		echo "sql $sql <br />"; exit;
+
+		$result = $this->call_function($sql);
+		// show_array($result); 
+		// exit;
+		if($result['MSG'] <> 'error') { 
+		$tmp = explode("#",$result['MSG']);
+			if($tmp[0]=="00"){
+				$ret = array("result"=>"true","message"=>$tmp[1],"message_err"=>"");
+			}
+			else {
+				$ret = array("result"=>"false","message"=>"","message_err"=>$result['MSG']);
+			}
+		 }
+		 else{
+
+		 	$ret = array("result"=>"false","message"=>"","message_err"=>"Error DB");
+		 }
+
+		 return $ret;
+}
+
+
 
 }
 

@@ -68,8 +68,8 @@ function bpkb_add_company_web($data){
 		// show_array($result); 
 		// exit;
 		if($result['MSG'] <> 'error') { 
-		//$tmp = explode("#",$result['MSG']);
-			if($result['MSG']=="00"){
+		$tmp = explode("#",$result['MSG']);
+			if($result['MSG']=="1"){
 				$ret = array("result"=>"true","message"=>'DATA BERHASIL SIMPAN',"message_err"=>"");
 			}
 			else {
@@ -85,7 +85,10 @@ function bpkb_add_company_web($data){
 }
 
 
+
 function bpkb_add_pemohon_web($data){
+		//$data = $this->data;
+
 	$sql="select bpkb_add_pemohon_web(
 		'$data->v_pemohon_nama',
 		'$data->v_company_id',
@@ -94,16 +97,12 @@ function bpkb_add_pemohon_web($data){
 		'$data->v_pemohon_telp',
 		'$data->v_pemohon_hp',
 		'$data->v_pemohon_alamat',
-		'$data->v_pemohon_foto  ',
 		'$data->v_pemohon_jenis',
-		'$data->v_id_petugas' 
+		'$data->v_id_petugas'
 		) as msg from dual";
-	    
-
-		echo $sql; exit;
+	// echo "test..";
 
 		$result = $this->call_function($sql);
-		echo $result; exit;
 		// show_array($result); 
 		// exit;
 		if($result['MSG'] <> 'error') { 
@@ -122,8 +121,7 @@ function bpkb_add_pemohon_web($data){
 
 		 return $ret;
 
-}
-
+	}
 
 
 
