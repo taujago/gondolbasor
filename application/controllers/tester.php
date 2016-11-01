@@ -964,6 +964,39 @@ function stnk_list_registrasi_print(){
 
 
 
+// function bpkb_add_pemohon_web(){
+// 		$data =  array(
+// 				"LoginInfo" => array ( 
+// 						"LoginName" => $this->user,
+// 						"Salt" =>  $this->salt,
+// 						"AuthHash" =>  md5( $this->user . "_".$this->salt. md5($this->pass) )   // algo   md5(user+md5(pass)) 
+// 				),
+// 				"Param" => array(				 
+
+					 
+// 				 	'v_pemohon_nama'   => 'Budiman',
+// 					'v_company_id'   => '1',
+// 					'v_bank_id'   => '1',
+// 					'v_pemohon_rek'   => '334244424',
+// 					'v_pemohon_telp'   => '35395395305',
+// 					'v_pemohon_hp'   => '3839859359',
+// 					'v_pemohon_alamat'   => 'JL. kadaluarsa',
+// 					'v_pemohon_jenis'   => 'BIROJASA',
+// 					'v_id_petugas'    =>  '1'
+						 
+// 				));
+
+// 		$data_json = json_encode($data);
+// 		//echo $data_json; exit;
+// 		// echo "sebelum dikirim " . $data_json;
+// 		$res = $this->execute_service2($this->url,"bpkb_add_pemohon_web",$data_json);
+
+// 		// echo "<hr />"; 
+// 		//header('Content-type: text/xml');
+// 		echo $res; 
+// 	}
+
+
 
 
 }

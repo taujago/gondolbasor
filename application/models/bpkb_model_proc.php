@@ -1,6 +1,6 @@
 <?php
-class bpkb_model extends ORA_Model {
-	function bpkb_model(){
+class bpkb_model_proc extends ORA_Model {
+	function bpkb_model_proc(){
 		parent::__construct();
 	}
 

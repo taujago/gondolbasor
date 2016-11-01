@@ -1,6 +1,6 @@
 <?php
-class bpkb_model extends ORA_Model {
-	function bpkb_model(){
+class bpkb_model_function extends ORA_Model {
+	function bpkb_model_function(){
 		parent::__construct();
 	}
 
@@ -135,7 +135,7 @@ function bpkb_pendaftaran_add($data){
 }
 
 
-function bpkb_pendaftaran_add($data){
+function bpkb_add_pemohon_web($data){
 		$sql="select BPKB_ADD_PEMOHON_WEB(
 				'$data->v_pemohon_nama',
 				'$data->v_company_id',
@@ -146,13 +146,14 @@ function bpkb_pendaftaran_add($data){
 				'$data->v_pemohon_alamat',
 				'$data->v_pemohon_jenis',
 				'$data->v_id_petugas') from dual";
-	// echo "test..";
-
-		// echo "sql $sql <br />"; exit;
+	 
+		echo $sql; 
+		exit;
 
 		$result = $this->call_function($sql);
-		// show_array($result); 
-		// exit;
+		show_array($result); 
+		exit;
+
 		if($result['MSG'] <> 'error') { 
 		$tmp = explode("#",$result['MSG']);
 			if($tmp[0]=="00"){
