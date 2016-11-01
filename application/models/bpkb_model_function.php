@@ -112,7 +112,7 @@ function bpkb_pendaftaran_add($data){
 		) as msg from dual";
 	// echo "test..";
 
-		echo "sql $sql <br />"; exit;
+		// echo "sql $sql <br />"; exit;
 
 		$result = $this->call_function($sql);
 		// show_array($result); 
@@ -135,6 +135,40 @@ function bpkb_pendaftaran_add($data){
 }
 
 
+function bpkb_pendaftaran_add($data){
+		$sql="select BPKB_ADD_PEMOHON_WEB(
+				'$data->v_pemohon_nama',
+				'$data->v_company_id',
+				'$data->v_bank_id',
+				'$data->v_pemohon_rek',
+				'$data->v_pemohon_telp',
+				'$data->v_pemohon_hp',
+				'$data->v_pemohon_alamat',
+				'$data->v_pemohon_jenis',
+				'$data->v_id_petugas') from dual";
+	// echo "test..";
+
+		// echo "sql $sql <br />"; exit;
+
+		$result = $this->call_function($sql);
+		// show_array($result); 
+		// exit;
+		if($result['MSG'] <> 'error') { 
+		$tmp = explode("#",$result['MSG']);
+			if($tmp[0]=="00"){
+				$ret = array("result"=>"true","message"=>$tmp[1],"message_err"=>"");
+			}
+			else {
+				$ret = array("result"=>"false","message"=>"","message_err"=>$result['MSG']);
+			}
+		 }
+		 else{
+
+		 	$ret = array("result"=>"false","message"=>"","message_err"=>"Error DB");
+		 }
+
+		 return $ret;
+}
 
 }
 
