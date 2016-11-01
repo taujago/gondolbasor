@@ -6,7 +6,8 @@ function rocknroll(){
 		$this->load->helper("tanggal");
 
 		$this->load->library("xml");
-		$this->load->model("bpkb_model","bm");
+		$this->load->model("bpkb_model_function","fm");
+		$this->load->model("bpkb_model_proc","pm");
 		$this->load->model("master_model","master");
 		// $this->load->model("oramodel");
 
@@ -77,7 +78,7 @@ function rocknroll(){
 
 
 function bpkb_login_web(){
-	$result = $this->bm->bpkb_login_web($this->data->Param);
+	$result = $this->fm->bpkb_login_web($this->data->Param);
 	echo json_encode($result);
 
 }
@@ -159,17 +160,16 @@ function bpkb_list_pemohon_web(){
 function list_pendaftaran(){
 	// show_array($this->data);
 	// exit;
-	$result = $this->bm->list_pendaftaran($this->data->Param);
+	$result = $this->pm->list_pendaftaran($this->data->Param);
 	// show_array($result);
 	echo json_encode($result);
 }
 
 
 function bpkb_pendaftaran_add(){
-	// show_array($this->data);
-	// exit;
-	$result = $this->bm->bpkb_pendaftaran_add($this->data->Param);
-	// show_array($result);
+ 
+	$result = $this->fm->bpkb_pendaftaran_add($this->data->Param);
+	 
 	echo json_encode($result);
 }
 
